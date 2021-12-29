@@ -102,28 +102,30 @@ class Solution {
         int[] L = new int[n1];
         int[] R = new int[n2];
         
-        for(int i =0; i<n1; i++) L[i] = index[l+i];
+        for(int i =0; i<n1; i++) L[i] = index[l+i]; //NOTE: YOU ARE STORING INDEX
         for(int i =0; i<n2; i++) R[i] = index[mid+1+i];
         
         int i=0, j = 0, k=l, rightCount=0;
         
         while(i<n1 && j<n2) {
-            if(arr[L[i]]<= arr[R[j]]) {
-                index[k] = L[i];
-                count[L[i]] += rightCount;
+            if(arr[L[i]]<= arr[R[j]]) { //no jumping. Simple merging. 
+                index[k] = L[i]; //smaller no index goes to index--> for future merges
+                count[L[i]] += rightCount; 
                 i++;
-            } else {
-                index[k] = R[j];
-                rightCount++;
+            }           //PERSPECTIVE CHANGE: instead of looking at right jumps. See how many no. from right went to arr in place of you. 
+            else // O...o --> jump
+            {// 7,9...1,2,3,8 ---> 9 will jump atleast as many jumps as 7. 
+                index[k] = R[j]; //O..o --> bigNo. jumped. left is smaller
+                rightCount++; //increase jumpCount for the next number when the current number if jumping right. He will have to jump atleast these many times. 
                 j++;
             }
             k++;
         }
         
         while(i<n1) {
-              index[k] = L[i];
-                count[L[i]] += rightCount;
-                i++;
+            index[k] = L[i];
+            count[L[i]] += rightCount;
+            i++;
             k++;
         }
         
