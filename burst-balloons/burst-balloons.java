@@ -1,32 +1,35 @@
 class Solution {
     public int maxCoins(int[] nums) {
-        int n = nums.length + 2;
-        int[] newNums = new int[n];
-        System.arraycopy(nums, 0, newNums, 1, n - 2);
-        newNums[0] = 1;
-        newNums[n - 1] = 1;
-
-        int[][] memo = new int[n][n];
-
-        return dp(memo, newNums, 1, n - 2);
-    }
-
-    public int dp(int[][] memo, int[] nums, int left, int right) {
-        if (right - left < 0) {
-            return 0;
+        int len = nums.length;
+        
+        int[][] dp = new int[len][len];
+        
+        
+        
+        for(int gap=0; gap<len; gap++) {
+            for(int i=0, j=gap; j<len; j++, i++) {
+                
+                int res = Integer.MIN_VALUE;
+                
+                for(int k=i; k<=j; k++) {
+                    int left = (k==i) ? 0 : dp[i][k-1];
+                    int right = (k==j) ? 0 : dp[k+1][j];
+                    
+                    int temp1 = (i==0) ? 1: nums[i-1];
+                    int temp2 = (j==len-1) ? 1: nums[j+1];
+                    
+                    int curVal = temp1 * nums[k] * temp2;
+                    
+                    int totalVal = left+curVal+right;
+                    if(res<totalVal)
+                        res = totalVal;
+                }
+                
+                dp[i][j] = res;
+            }
         }
-
-        if (memo[left][right] > 0) {
-            return memo[left][right];
-        }
-
-        int result = 0;
-        for (int i = left; i <= right; i++) {
-            int gain = nums[left - 1] * nums[i] * nums[right + 1];
-            int remaining = dp(memo, nums, left, i - 1) + dp(memo, nums, i + 1, right);
-            result = Math.max(result, remaining + gain);
-        }
-        memo[left][right] = result;
-        return result;
+        
+        return dp[0][len-1];
+        
     }
 }
