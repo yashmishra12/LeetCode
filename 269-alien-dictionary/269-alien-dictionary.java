@@ -1,13 +1,13 @@
 class Solution {
     public String alienOrder(String[] words) {
         
-        HashMap<Character, HashSet<Character>> map = new HashMap<>();
+        HashMap<Character, HashSet<Character>> map = new HashMap<>(); //Characters and their neighbors
         HashMap<Character, Integer> indegree = new HashMap<>();
         
-        for(String st: words) {
+        for(String st: words) 
             for(char ch: st.toCharArray()) 
                 indegree.put(ch,0);
-        }
+
         
         for(int i=0; i<words.length-1; i++) {
             String curr = words[i];
@@ -20,7 +20,7 @@ class Solution {
                 char ch1 = curr.charAt(j);
                 char ch2 = next.charAt(j);
                 
-                if(ch1 != ch2){
+                if(ch1 != ch2){ //first mismatch helps us decide the order. 
                     HashSet<Character> set =  new HashSet<>();
                     if(map.containsKey(ch1)==true) {
                         set = map.get(ch1); 
@@ -39,9 +39,7 @@ class Solution {
                 }
             }
             
-            if(flag==false && curr.length()>next.length()) {
-                return "";
-            }
+            if(flag==false && curr.length()>next.length())  return "";
         }
         
         LinkedList<Character> q = new LinkedList<>();
