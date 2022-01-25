@@ -1,10 +1,8 @@
 class MinStack {
-    List<Integer> stack = new ArrayList<>();
-    List<Integer> minStack = new ArrayList<>();
+    Stack<Integer> stack = new Stack<>();
+    Stack<Integer> minStack = new Stack<>();
     
-    public MinStack() {
-        
-    }
+    public MinStack() {}
     
     public void push(int val) {
         if(stack.size()==0) {
