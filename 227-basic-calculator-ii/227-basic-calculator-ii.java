@@ -12,8 +12,8 @@ class Solution {
             if(Character.isDigit(cur)) curNum = curNum*10 + (cur - '0');
             
             if(!Character.isDigit(cur) && !Character.isWhitespace(cur) || i==len-1) {
-                if(operation == '+') st.push(curNum);
-                else if(operation=='-') st.push(-curNum); //opration begins with '+'
+                if(operation == '-') st.push(-curNum);
+                else if(operation=='+') st.push(curNum); //opration begins with '+'
                 else if(operation=='*') st.push(st.pop()*curNum);
                 else if(operation=='/') st.push(st.pop()/curNum);
                 
