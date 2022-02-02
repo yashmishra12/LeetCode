@@ -6,7 +6,7 @@ class Solution {
         
         for(int p=2; p<=(int)Math.sqrt(n); p++) {
             if(numbers[p]==false) {
-                for(int j=p*p; j<n; j=j+p) 
+                for(int j=p+p; j<n; j=j+p) 
                     numbers[j] = true; //primes smaller than p^2 would be covered by numbers smaller than p
             }    
         }
