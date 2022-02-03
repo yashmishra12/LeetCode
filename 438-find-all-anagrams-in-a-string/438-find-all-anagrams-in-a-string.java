@@ -21,7 +21,7 @@ class Solution {
                 }
             }
             
-            if(!flag) res.add(i);
+            if(!flag) {res.add(i);}
             
         }
         
