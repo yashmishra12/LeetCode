@@ -4,12 +4,7 @@
  	/** initialize your data structure here. */
  	public MedianFinder() {
  		pq2 = new PriorityQueue<>();
- 		pq1 = new PriorityQueue<>(new Comparator<Integer>(){
- 			@Override
- 			public int compare(Integer a, Integer b){
- 				return b - a;
- 			}
- 		});
+ 		pq1 = new PriorityQueue<>((a,b)->b-a);
  	}
  	
  	public void addNum(int num) {
