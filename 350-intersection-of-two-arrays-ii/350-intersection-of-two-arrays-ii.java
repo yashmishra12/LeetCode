@@ -4,24 +4,20 @@ class Solution {
         Arrays.sort(nums2);
         List<Integer> res = new ArrayList<>();
         
-       int i = 0, k=0;
+       int i = 0, k=0, j=0;
         
-        while(i<nums1.length && k<nums2.length) {
-            if(nums1[i]<nums2[k]) i++;
-            else if (nums1[i]>nums2[k]) k++;
+        while(i<nums1.length && j<nums2.length) {
+            if(nums1[i]<nums2[j]) i++;
+            else if (nums1[i]>nums2[j]) j++;
             else {
-                res.add(nums1[i]);
+                nums1[k] = nums1[i];
                 i++;
                 k++;
+                j++;
             }
         }
         
-        int[] answer = new int[res.size()];
-        
-        for(int j=0; j<answer.length; j++ ){
-            answer[j] = res.get(j);
-        }
-        return answer;
+        return Arrays.copyOfRange(nums1,0, k);
         
     }
 }
