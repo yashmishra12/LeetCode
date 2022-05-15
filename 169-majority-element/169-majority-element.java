@@ -11,7 +11,7 @@ class Solution {
             map.put(a, freq);
             
             if(curMax<freq){
-                curMax = Math.max(curMax, freq);
+                curMax = freq;
                 res = a;
             }
         }
