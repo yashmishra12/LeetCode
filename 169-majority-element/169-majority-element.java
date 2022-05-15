@@ -2,7 +2,7 @@ class Solution {
     public int majorityElement(int[] nums) {
         
         int count = 0;
-        Integer candidate = null;
+        int candidate = Integer.MIN_VALUE;
         
         for(int num: nums) {
             if (count==0) candidate = num;
