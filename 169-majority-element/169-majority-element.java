@@ -7,7 +7,7 @@ class Solution {
         int res = -1;
         
         for(int a: nums) {
-            int freq = map.getOrDefault(a, 0+1)+1;
+            int freq = map.getOrDefault(a, 0)+1;
             map.put(a, freq);
             
             if(curMax<freq){
