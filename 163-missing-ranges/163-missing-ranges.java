@@ -7,12 +7,9 @@ class Solution {
         for(int i=0; i<=nums.length; i++) {
             if(i==nums.length) curr = upper+1;
             else curr = nums[i];
-            
-            
-            
-            if (prev+1 <= curr-1) {
-                res.add(printRes(prev+1, curr-1));
-            }
+                      
+            if (prev+1 <= curr-1)  res.add(printRes(prev+1, curr-1));
+
             prev = curr;
         }
         
