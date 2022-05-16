@@ -16,7 +16,7 @@ class Solution {
     public static void reArrange (int[][] matrix, int row, int col){
         int newRow = 0, newCol = 0;
         
-        if(row==0 && col==0) {
+        if(row==0 && col==0 || matrix[row][col]==Integer.MIN_VALUE) {
             matrix[row][col] = Integer.MIN_VALUE;
             return;
         }
