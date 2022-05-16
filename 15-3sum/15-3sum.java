@@ -1,20 +1,48 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        Set<List<Integer>> res = new HashSet<>();
-        Set<Integer> dups = new HashSet<>();
-        Map<Integer, Integer> seen = new HashMap<>();
-        for (int i = 0; i < nums.length; ++i)
-            if (dups.add(nums[i])) {
-                for (int j = i + 1; j < nums.length; ++j) {
-                    int complement = -nums[i] - nums[j];
-                    if (seen.containsKey(complement) && seen.get(complement) == i) {
-                        List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
-                        Collections.sort(triplet);
-                        res.add(triplet);
-                    }
-                    seen.put(nums[j], i);
+        
+        if (nums.length<3) return new ArrayList<List<Integer>>();
+        // Set<Integer> set = Arrays.stream(pnums).boxed().collect(Collectors.toSet());
+        // Integer[] nums = new Integer[set.size()];
+        // set.toArray(nums);
+        
+        Set<String> set = new HashSet<String>();
+
+        Arrays.sort(nums);
+        
+        ArrayList<List<Integer>> res = new ArrayList<List<Integer>>();
+        
+        int i = 0, j = 0;
+        
+        for(int p=0; p<nums.length-2; p++) {
+            i = p+1;
+            j = nums.length-1;
+            
+            while(i<j){
+                 int curSum = nums[p]+nums[i]+nums[j];
+                String pot = stringify(nums[p],nums[i],nums[j]);
+            
+                if(curSum==0 && !set.contains(pot) ){
+                    ArrayList<Integer> ans = new ArrayList<>();
+                    ans.add(nums[p]);
+                    ans.add(nums[i++]);
+                    ans.add(nums[j--]);
+                    res.add(ans);
+                    set.add(pot);
+                    
+                }
+                else if(curSum<0) {
+                    i++;
+                } else {
+                    j--;
                 }
             }
-        return new ArrayList(res);
+        }
+        
+        return res;
+    }
+    
+    public static String stringify(int a, int b, int c) {
+        return a+","+b+","+c;
     }
 }
