@@ -11,13 +11,20 @@ class Solution {
             if(a==b) bull++;
             else {
                 
-                if(arr[a]<0)cows++;
-                if(arr[b]>0)cows++;
+                // if(arr[a]<0)cows++;
+                // if(arr[b]>0)cows++;
                 
                 arr[a]++;
                 arr[b]--;
             }
         }    
+        
+        int sum = 0;
+        for (int a: arr) {
+            if (a>0) sum += a;
+        }
+        
+        cows = secret.length()-bull-sum;
         StringBuilder sb = new StringBuilder();
         sb.append(bull);
         sb.append("A");
