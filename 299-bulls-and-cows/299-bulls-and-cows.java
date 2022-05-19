@@ -17,12 +17,7 @@ class Solution {
                 arr[a]++;
                 arr[b]--;
             }
-        }
-        
-        int sum = Arrays.stream(arr).sum();
-        
-        // int cows = secret.length() - bull - sum;
-        
+        }    
         StringBuilder sb = new StringBuilder();
         sb.append(bull);
         sb.append("A");
