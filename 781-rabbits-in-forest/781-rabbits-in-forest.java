@@ -11,9 +11,9 @@ class Solution {
         
         for(Map.Entry<Integer, Integer> e: hm.entrySet()) {
             int groupSize = e.getKey()+1;
-            int freq = e.getValue();
+            double freq = e.getValue();
             
-            int numOfGroups = (int)Math.ceil((double)freq/groupSize);
+            int numOfGroups = (int)Math.ceil(freq/groupSize);
             int rabbitsInCurrGroup = numOfGroups * groupSize;
             
             res += rabbitsInCurrGroup;
