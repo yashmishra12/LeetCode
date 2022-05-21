@@ -12,7 +12,9 @@ class Solution {
             if(ratings[i]>ratings[i+1]) arr[i] = Math.max(arr[i],arr[i+1]+1);
         }
         
-        return Arrays.stream(arr).sum();
+        int sum=0;
+        for(int a: arr) {sum+=a;}
+        return sum;
         
         
         
