@@ -9,8 +9,11 @@ class Solution {
         for(int i=1; i<nums.length; i++) {
             int curr = nums[i];
             
-            int tmpMax = Math.max(curr, Math.max(max*curr, min*curr));
-            min = Math.min(curr, Math.min(max*curr, min*curr));
+            int posMax = max*curr;
+            int negMax = min*curr; //-ve x -ve ---> +ve
+            
+            int tmpMax = Math.max(curr, Math.max(posMax, negMax));
+            min = Math.min(curr, Math.min(posMax, negMax));
             
             max = tmpMax;
             
