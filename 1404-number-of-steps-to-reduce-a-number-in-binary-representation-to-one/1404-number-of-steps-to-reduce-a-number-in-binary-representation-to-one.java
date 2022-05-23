@@ -1,7 +1,6 @@
 class Solution {
     public int numSteps(String s) {
         if(s.length()==1) return 0;
-        
         int ans=0;
         
         while(!s.equals("1")) {
@@ -13,22 +12,22 @@ class Solution {
                 ans++;
             }
         }
-        
         return ans;
     }
     
   	public static String addOne(String s) {
-		char[] ch = s.toCharArray();
-	
-		int i = s.length()-1;
+        
+		StringBuilder sb = new StringBuilder(s);
 		
+		int i = s.length()-1;
 		boolean flag = false;
+		
 		while(i>=0) {
-			if(ch[i]=='1') {
-				ch[i]= '0';
+			if(sb.charAt(i)=='1') {
+				sb.setCharAt(i, '0');
 				i--;
 			} else {
-				ch[i]= '1';
+				sb.setCharAt(i, '1');
 				flag=true;
 				break;
 			}
@@ -36,15 +35,13 @@ class Solution {
 		}
 		
 		if(flag==false) {
-			char[] ch2 = new char[s.length()+1];
-			Arrays.fill(ch2, '0');
-			ch2[0]='1';
-			return String.valueOf(ch2);
+			sb.append('1');
+			sb.reverse();
 		}
 		
 		
-		return String.valueOf(ch);
-		
+		return sb.toString();
 	}
+    
     
 }
