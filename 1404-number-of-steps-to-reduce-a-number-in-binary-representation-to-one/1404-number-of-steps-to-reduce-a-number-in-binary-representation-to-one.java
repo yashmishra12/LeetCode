@@ -31,12 +31,14 @@ class Solution {
 				flag=true;
 				break;
 			}
-			
 		}
 		
 		if(flag==false) {
-            sb.insert(0, '1');
+            sb.insert(0, '1');  // sb.append('1'); --> sb.reverse();
 		}
+        
 		return sb.toString();
-	}    
+	}
+    
+    
 }
