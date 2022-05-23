@@ -35,13 +35,8 @@ class Solution {
 		}
 		
 		if(flag==false) {
-			sb.append('1');
-			sb.reverse();
+            sb.insert(0, '1');
 		}
-		
-		
 		return sb.toString();
-	}
-    
-    
+	}    
 }
