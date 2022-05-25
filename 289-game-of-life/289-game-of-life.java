@@ -1,7 +1,6 @@
 class Solution {
     public void gameOfLife(int[][] board) {
-        int[][] dirs = new int[][] {{1,0}, {0, 1}, {1,1},{-1,0},{0,-1}, {-1, -1},
-                                    {1,-1}, {-1,1}};
+        int[][] dirs = {{1,0}, {0, 1}, {1,1},{-1,0},{0,-1}, {-1,-1},{1,-1}, {-1,1}};
         
         for(int i=0; i<board.length; i++) {
             for(int j=0; j<board[0].length; j++) {
