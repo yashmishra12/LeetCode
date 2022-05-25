@@ -1,7 +1,6 @@
 class Solution {
     public void gameOfLife(int[][] board) {
-        int[][] dirs = new int[][] {{1,0}, {0, 1}, {1,1}, 
-                                    {-1,0},{0,-1}, {-1, -1},
+        int[][] dirs = new int[][] {{1,0}, {0, 1}, {1,1},{-1,0},{0,-1}, {-1, -1},
                                     {1,-1}, {-1,1}};
         
         for(int i=0; i<board.length; i++) {
@@ -16,13 +15,10 @@ class Solution {
                 }
                 
                 if(board[i][j]==1) {
-                    if(aliveCount<2 || aliveCount>3) board[i][j]=2;
-                } else {
-                    if (aliveCount==3) {
-                        board[i][j] = 3;
-                    }
+                    if(aliveCount<2 || aliveCount>3) {board[i][j]=2;}
+                } else if(board[i][j]==0) {
+                    if (aliveCount==3) {board[i][j] = 3;}
                 }
-      
             }
         }
         
