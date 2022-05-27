@@ -23,11 +23,10 @@ class Solution {
             if(bucket[i] != null) {
                 for(int j=0; j<bucket[i].size(); j++) {
                     res[count++] = bucket[i].get(j);
-                    // if(count==k) return res;
                 }
             }
             
-            if(count==k) return res;
+            if(count==k) break;
         }
         
         return res;
