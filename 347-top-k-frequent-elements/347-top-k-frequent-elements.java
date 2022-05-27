@@ -26,7 +26,7 @@ class Solution {
                 }
             }
             
-            if(count==k) break;
+            if(count==k) {return res;}
         }
         
         return res;
