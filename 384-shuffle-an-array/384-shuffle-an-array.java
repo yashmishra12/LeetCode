@@ -1,15 +1,13 @@
 class Solution {
     int[] arr;
-    int[] orig; 
+    // int[] orig; 
     
     public Solution(int[] nums) {
         arr = nums;
-        orig = nums.clone();
+        // orig = nums.clone();
     }
     
-    public int[] reset() {
-        return orig;
-    }
+    public int[] reset() { return arr;}
     
     public int[] shuffle() {
         ArrayList<Integer> cs = new ArrayList<>();
@@ -18,9 +16,7 @@ class Solution {
         
         int[] temp = new int[cs.size()];
         
-        for(int i=0; i<cs.size();i++) {
-            temp[i] = cs.get(i);
-        }
+        for(int i=0; i<cs.size();i++) { temp[i] = cs.get(i);}
         return temp;
 
     }
