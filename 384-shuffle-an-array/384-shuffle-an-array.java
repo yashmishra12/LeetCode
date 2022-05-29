@@ -8,9 +8,9 @@ class Solution {
     public int[] reset() { return arr;}
     
     public int[] shuffle() {
-        int[] temp = arr.clone(); //doesn't matter as we will shuffle this anyway
+        int[] temp = arr.clone(); 
         
-        for(int i=temp.length-1; i>=0; i--) {
+        for(int i=0; i<temp.length; i++) {
             int idx = new Random().nextInt(i+1);
             
             int tmpVal = temp[i];
