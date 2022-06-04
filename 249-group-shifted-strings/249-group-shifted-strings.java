@@ -23,24 +23,21 @@ class Solution {
         char[] chars = s.toCharArray();
         
         StringBuilder sb = new StringBuilder();
+    
         
-        int shift = chars[0];
-        
-        for(int i=0; i<chars.length;i++) {
-            chars[i] = shiftLetter(chars[i], shift);
+        for(int i=1; i<chars.length;i++) {
+            int diff = chars[i]-chars[i-1];
+
+            int posDiff = diff+26; //diff can be pos. and then we are adding 26 to it. So, use modulo
+
+            char finalChar = (char) (posDiff % 26 + 'a');
+            
+            sb.append(finalChar);
         }
         
-        return String.valueOf(chars);
+        return sb.toString();
     }
     
-    public static char shiftLetter(char c, int s){
-        
-        int diff = (c-s);
-        int posDiff = diff+26; //but diff can be pos. and then we are adding 26 to it. So, use modulo
-        char finalChar = (char) (posDiff % 26 + 'a');
-        
-        return finalChar; 
-    }
     
     
 }
