@@ -30,7 +30,7 @@ class Solution {
 
             int posDiff = diff+26; //diff can be pos. and then we are adding 26 to it. So, use modulo
 
-            char finalChar = (char) (posDiff % 26 + 'a');
+            char finalChar = (char) (posDiff % 26);
             
             sb.append(finalChar);
         }
