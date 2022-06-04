@@ -1,11 +1,6 @@
 class Solution {
     public int compress(char[] chars) {
-            
-        HashMap<Character, Integer> hm = new HashMap<>();
-        for(char c: chars) {
-            hm.put(c, hm.getOrDefault(c,0)+1);
-        }
-        
+
         int count=0;
         
         for(int i=0; i<chars.length; i++) {
@@ -21,7 +16,6 @@ class Solution {
             String st = String.valueOf(val);
             for(int k=0; k<st.length(); k++) {chars[count++] = st.charAt(k);}
         }
-        
         return count;
         
     }
