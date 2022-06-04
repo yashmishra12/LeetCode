@@ -36,7 +36,7 @@ class Solution {
     public static char shiftLetter(char c, int s){
         
         int diff = (c-s);
-        int posDiff = diff+26;
+        int posDiff = diff+26; //but diff can be pos. and then we are adding 26 to it. So, use modulo
         char finalChar = (char) (posDiff % 26 + 'a');
         
         return finalChar; 
