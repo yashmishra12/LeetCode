@@ -12,10 +12,10 @@ class Solution {
             int posMax = max*curr;
             int negMax = min*curr; //-ve x -ve ---> +ve
             
-            int tmpMax = Math.max(curr, Math.max(posMax, negMax));
+            max = Math.max(curr, Math.max(posMax, negMax));
             min = Math.min(curr, Math.min(posMax, negMax));
             
-            max = tmpMax;
+            // max = tmpMax;
             
             res = Math.max(max, res);
         }
