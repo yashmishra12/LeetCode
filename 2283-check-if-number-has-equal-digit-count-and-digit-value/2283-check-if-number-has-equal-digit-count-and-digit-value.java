@@ -5,12 +5,12 @@ class Solution {
         int[] count = new int[10];
        
         for (int i = 0; i < num.length(); i++) {
-            int curNum = Character.digit(num.charAt(i), 10);
+            int curNum = num.charAt(i) - '0';
             count[curNum]++;
         }
 
         for (int i = 0; i < num.length(); i++) {
-            int curNum = Character.digit(num.charAt(i), 10);
+            int curNum = num.charAt(i) - '0';
             if ( curNum != count[i]) {
                 return false;
             }
