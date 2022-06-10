@@ -1,6 +1,5 @@
 class Solution {
     public boolean digitCount(String num) {
-
         
         int[] count = new int[10];
        
@@ -11,14 +10,9 @@ class Solution {
 
         for (int i = 0; i < num.length(); i++) {
             int curNum = num.charAt(i) - '0';
-            if ( curNum != count[i]) {
-                return false;
-            }
+            if ( curNum != count[i]) { return false; }
           }
         
-        
         return true;
-        
-        
     }
 }
