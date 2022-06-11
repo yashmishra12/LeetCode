@@ -7,13 +7,18 @@ class Solution {
         for(int i=1; i<s.length(); i++) {
             int[] odd  = getLength(s, i-1, i+1);
             int[] even = getLength(s, i-1, i);
-            int[] longest = odd[1]-odd[0] > even[1]-even[0] ? odd:even;
+            int[] longest = helper(odd, even);
             
-            curLongest = curLongest[1]-curLongest[0] > longest[1]-longest[0] ? curLongest : longest;
+            curLongest = helper(curLongest, longest);
         }
         
         return s.substring(curLongest[0], curLongest[1]);
         
+    }
+    
+    public static int[] helper (int[] a, int[] b) {
+        int[] res = a[1]-a[0] > b[1]-b[0] ? a:b;
+        return res;
     }
     
     
