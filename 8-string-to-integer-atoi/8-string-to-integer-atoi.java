@@ -7,7 +7,7 @@ class Solution {
         int max = Integer.MAX_VALUE;
         int min = Integer.MIN_VALUE;
         
-        while (i<n &&  Character.isSpace(str.charAt(i))) {i++;}
+        while (i<n &&  str.charAt(i)==' ') {i++;}
         
         if(i>=n) {return 0;}
         
