@@ -4,7 +4,7 @@ class Solution {
         int m = haystack.length();
         int n = needle.length();
         
-        if (n>m) {return -1;}
+        // if (n>m) {return -1;}
         
         for(int i=0; i<= m-n; i++) {
             int j;
