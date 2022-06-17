@@ -1,8 +1,7 @@
 class Solution {
     public int shipWithinDays(int[] wt, int days) {
         
-        int max = 0;
-        int sum = 0;
+        int max = 0, sum = 0;
         
         for(int val: wt) {
             sum += val;
@@ -11,9 +10,7 @@ class Solution {
         
         if(wt.length == days) { return max;}
         
-        int lo = max;
-        int hi = sum;
-        int ans = 0;
+        int lo = max, hi = sum, ans = 0;
         
         while (lo<=hi) {
             int mid = (hi+lo)/2;
@@ -22,13 +19,10 @@ class Solution {
                 ans = mid;
                 hi = mid-1;
             } 
-            else {
-                lo = mid+1;
-            }
+            else { lo = mid+1; }
         }
         
         return ans;
-        
     }
     
     public static boolean isPossible (int[] wt, int mid, int days) {
