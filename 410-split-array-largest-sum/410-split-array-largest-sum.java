@@ -7,9 +7,7 @@ class Solution {
             sum += n;
         }
         
-        if (m==nums.length) {
-            return max;
-        }
+        if (m==nums.length) { return max; }
         
         int lo = max, hi = sum, ans = 0;
         
@@ -20,26 +18,23 @@ class Solution {
                 ans = mid;
                 hi = mid-1;
             }
-            else {
-                lo = mid+1;
-            }
-             
+            else { lo = mid+1; }  
         }
         
         return ans;
     }
     
-    public static boolean isPossible(int[] wt, int mid, int days) {
+    public static boolean isPossible(int[] nums, int mid, int m) {
         int d = 1;
         int sum = 0;
         
-        for(int i=0; i<wt.length; i++) {
-            sum += wt[i];
+        for(int i=0; i<nums.length; i++) {
+            sum += nums[i];
             if(sum>mid) {
                 d++;
-                sum = wt[i];
+                sum = nums[i];
             }
-            if(d>days){return false;}
+            if(d>m){return false;}
         }
         return true;
     }
