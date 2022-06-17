@@ -40,10 +40,12 @@ class Solution {
             
             if(sum>mid) {
                 d++;
-                sum = wt[i];
+                sum = wt[i]; //reset sum to take this parcel on next day (d++)
             }
+            
+            if(d>days) {return false;}
         }
         
-        return d <= days;
+        return true;
     }
 }
