@@ -16,7 +16,7 @@ class Solution {
         int ans = 0;
         
         while (lo<=hi) {
-            int mid = lo + (hi-lo)/2;
+            int mid = (hi+lo)/2;
             
             if(isPossible(wt, mid, days)) {
                 ans = mid;
