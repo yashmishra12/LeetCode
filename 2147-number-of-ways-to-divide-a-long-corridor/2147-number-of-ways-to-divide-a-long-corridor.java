@@ -3,18 +3,12 @@ class Solution {
     
     public int numberOfWays(String corridor) {
         int count = 0;
-        
-        for(int i=0; i<corridor.length(); i++) {
-            if(corridor.charAt(i)=='S') { count++; }
-        }
-            
-        if(count==0 || count%2 != 0) {return 0;}
-            
+
         int seatCount = 0;
         long ans = 1;
         
         for(int i=0; i<corridor.length();i++) {
-            if (corridor.charAt(i)=='S') {seatCount++;}
+            if (corridor.charAt(i)=='S') { seatCount++; count++;}
             
             if(seatCount==2) {
                 int inCount = 1;
@@ -28,12 +22,12 @@ class Solution {
                 ans= (ans*inCount)%MOD;
                 seatCount=0;
                 i--;
-                }
+              }
 
             }
         
+         if(count==0 || count%2 != 0) { return 0;}
+        
         return (int)ans%MOD;
         }
-            
-            
 }
