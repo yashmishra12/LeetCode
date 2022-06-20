@@ -15,7 +15,7 @@ class Solution {
       
         // Sort in decreasing order.
         Arrays.sort(arr);
-        reverse(arr);
+        // reverse(arr);
         
         int targetSum = totalArraySum / k;
         
