@@ -16,8 +16,9 @@ class Solution {
       for(int n: nums) {
           for(int i = sum; i>=n; i--) {
               dp[i] = dp[i] || dp[i-n]; //if self is TRUE or complement is true
+               if (dp[sum]) {return true;}
           }
-          if (dp[sum]) {return true;}
+         
       }
         
         return false;
