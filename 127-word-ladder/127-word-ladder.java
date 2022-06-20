@@ -10,6 +10,7 @@ class Solution {
         
         while(!q.isEmpty()) {
             int size = q.size();
+            level ++;
             
             for(int i=0; i<size; i++) {
                 String curWord = q.poll();
@@ -23,7 +24,7 @@ class Solution {
                         
                         wordChar[j]=c;
                         String newWord = String.valueOf(wordChar);
-                        if(newWord.equals(endWord)) {return level+1;}
+                        if(newWord.equals(endWord)) {return level;}
                         
                         if(hs.contains(newWord)) {
                             q.offer(newWord);
@@ -34,8 +35,10 @@ class Solution {
                     wordChar[j] = origChar;
                 }
             }
-            level ++;
+            
         }
+        
+        
         return 0;
         
     }
