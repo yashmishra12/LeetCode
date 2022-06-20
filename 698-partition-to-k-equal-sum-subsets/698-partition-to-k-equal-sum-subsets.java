@@ -62,7 +62,7 @@
 
 class Solution {
     private boolean backtrack(int[] arr, int index, int count, int currSum, int k, 
-                              int targetSum, char[] taken, HashMap<String, Boolean> memo) {
+                              int targetSum, boolean[] taken) {
 
         int n = arr.length;
       
@@ -75,41 +75,31 @@ class Solution {
         if (currSum > targetSum) { 
             return false;
         }
-        
-        String takenStr = new String(taken);
-        
-        // If we have already computed the current combination.
-        if (memo.containsKey(takenStr)) {
-            return memo.get(takenStr);
-        }
       
         // When curr sum reaches target then one subset is made.
         // Increment count and reset current sum.
         if (currSum == targetSum) {
-            boolean ans = backtrack(arr, 0, count + 1, 0, k, targetSum, taken, memo);
-            memo.put(takenStr, ans);
-            return ans;
+            return backtrack(arr, 0, count + 1, 0, k, targetSum, taken);
         }
         
         // Try not picked elements to make some combinations.
         for (int j = index; j < n; ++j) {
-            if (taken[j] == '0') {
+            if (!taken[j]) {
                 // Include this element in current subset.
-                taken[j] = '1';
+                taken[j] = true;
                 
                 // If using current jth element in this subset leads to make all valid subsets.
-                if (backtrack(arr, j + 1, count, currSum + arr[j], k, targetSum, taken, memo)) {
+                if (backtrack(arr, j + 1, count, currSum + arr[j], k, targetSum, taken)) {
                     return true;
                 }
                 
                 // Backtrack step.
-                taken[j] = '0';
+                taken[j] = false;
             }
         } 
       
-        // We were not able to make a valid combination after picking each element from array,
+        // We were not able to make a valid combination after picking each element from the array,
         // hence we can't make k subsets.
-        memo.put(takenStr, false);
         return false;
     }
     
@@ -139,15 +129,8 @@ class Solution {
         reverse(arr);
         
         int targetSum = totalArraySum / k;
-        
-        char[] taken = new char[n];
-        for(int i = 0; i < n; ++i) {
-            taken[i] = '0';
-        }
-        
-        // Memoize the ans using taken element's string as key.
-        HashMap<String, Boolean> memo = new HashMap<>();
+        boolean[] taken = new boolean[n];
       
-        return backtrack(arr, 0, 0, 0, k, targetSum, taken, memo);
+        return backtrack(arr, 0, 0, 0, k, targetSum, taken);
     }
 }
