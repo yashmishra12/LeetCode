@@ -12,14 +12,14 @@ class Solution {
             int size = q.size();
             level ++;
             
-            for(int i=0; i<size; i++) {
+            for(int i=0; i<size; i++) { //takes one word at a time from Queue
                 String curWord = q.poll();
                 char[] wordChar = curWord.toCharArray();
                 
-                for(int j=0; j<wordChar.length; j++) {
+                for(int j=0; j<wordChar.length; j++) { //takes one letter at a time from word
                     char origChar = wordChar[j];
                     
-                    for(char c='a'; c<='z'; c++) {
+                    for(char c='a'; c<='z'; c++) { //puts 'a'-->'z' in place of the letter
                         if (wordChar[j]==c) {continue;} //you get the same word
                         
                         wordChar[j]=c;
@@ -32,12 +32,10 @@ class Solution {
                         }
                     }
                     
-                    wordChar[j] = origChar;
+                    wordChar[j] = origChar; //restore back the letter and hence the word
                 }
-            }
-            
+            }    
         }
-        
         
         return 0;
         
