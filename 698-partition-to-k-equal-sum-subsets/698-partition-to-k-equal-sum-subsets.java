@@ -19,15 +19,12 @@ class Solution {
         
         int targetSum = totalArraySum / k;
         
-        boolean[] taken = new boolean[n];
-        // for(int i = 0; i < n; ++i) {
-        //     taken[i] = '0';
-        // }
+        char[] taken = new char[n];
         
-        // Memoize the ans using taken element's string as key.
+        for(int i = 0; i < n; ++i) { taken[i] = '0'; }
+        
         HashMap<String, Boolean> memo = new HashMap<>();
-      
-        return backtrack(arr, 0, 0, 0, k, targetSum, taken, memo);
+        return backtrack(arr, 0, 0, k, targetSum, taken, memo);
     }
         
     void reverse(int[] arr) {
@@ -38,50 +35,44 @@ class Solution {
         }
     }
     
-    private boolean backtrack(int[] arr, int index, int count, int currSum, int k, 
-                              int targetSum, boolean[] taken, HashMap<String, Boolean> memo) 
+    private boolean backtrack(int[] arr, int count, int currSum, int k, 
+                              int targetSum, char[] taken, HashMap<String, Boolean> memo) 
     {
 
         int n = arr.length;
       
         // We made k - 1 subsets with target sum and last subset will also have target sum.
-        if (count == k - 1) { 
-            return true;
-        }
+        if (count == k - 1) {  return true; }
         
         // No need to proceed further.
-        if (currSum > targetSum) { 
-            return false;
-        }
+        if (currSum > targetSum) {  return false; }
         
-        String takenStr = Arrays.toString(taken);
+        String takenStr = new String(taken);
         
         // If we have already computed the current combination.
-        if (memo.containsKey(takenStr)) {
-            return memo.get(takenStr);
-        }
+        if (memo.containsKey(takenStr)) { return memo.get(takenStr); }
       
         // When curr sum reaches target then one subset is made.
         // Increment count and reset current sum.
         if (currSum == targetSum) {
-            boolean ans = backtrack(arr, 0, count + 1, 0, k, targetSum, taken, memo);
+            boolean ans = backtrack(arr, count + 1, 0, k, targetSum, taken, memo);
             memo.put(takenStr, ans);
             return ans;
         }
         
         // Try not picked elements to make some combinations.
-        for (int j = index; j < n; ++j) {
-            if (!taken[j]) {
+        for (int j = 0; j < n; ++j) {
+            if (taken[j] == '0') {
                 // Include this element in current subset.
-                taken[j] = true;
+                taken[j] = '1';
                 
                 // If using current jth element in this subset leads to make all valid subsets.
-                if (backtrack(arr, j + 1, count, currSum + arr[j], k, targetSum, taken, memo)) {
+                if (backtrack(arr, count, currSum + arr[j], k, targetSum, taken, memo)) {
                     return true;
                 }
                 
                 // Backtrack step.
-                taken[j] = false;
+                taken[j] = '0';
             }
         } 
       
