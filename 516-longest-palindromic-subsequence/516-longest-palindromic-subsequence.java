@@ -5,7 +5,6 @@ class Solution {
             r = s.charAt(i) + r;
         }
         
-        int max = 0;
         int n = s.length();
         int[][] dp = new int[n + 1][n + 1];
         
