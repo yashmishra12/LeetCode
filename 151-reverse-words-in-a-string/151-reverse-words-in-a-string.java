@@ -7,8 +7,7 @@ class Solution {
 
 		Collections.reverse(Arrays.asList(newArr));
 		
-        String ans = String.join(" ", newArr);
-		return ans;
+		return String.join(" ", newArr);
         
     }
 }
