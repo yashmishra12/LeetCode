@@ -3,7 +3,7 @@ class Solution {
         word = word.trim();
 		String[] arr = word.split(" ");
 		
-		String[] newArr = Arrays.stream(arr).filter(s -> s.length()>0).map(s -> s.trim()).toArray(String[]::new);
+		String[] newArr = Arrays.stream(arr).filter(s -> s.length()>0).toArray(String[]::new);
 
 		Collections.reverse(Arrays.asList(newArr));
 		
