@@ -4,21 +4,22 @@ class Solution {
         int[] freq = new int[26];
         
         for(char c: str ) {
-            int index = c - 'a';
-            freq[index]++;
+            freq[c-'a']++;
         }
         
         int start = 0;
         int maxLen = 0;
         boolean  valid = true;
         for(int end=0; end< s.length(); end++) {
-            if (freq[str[end]-'a'] > 0 && freq[str[end]-'a']<k) {
+            char curChar = s.charAt(end);
+            if (freq[curChar-'a'] > 0 && freq[curChar-'a']<k) {
                 String sb = s.substring(start, end);
                 maxLen = Math.max(maxLen, longestSubstring(sb, k));
                 start = end+1;
                 valid=false;
             }
         }
+        
         
         if(valid){
             return s.length();
