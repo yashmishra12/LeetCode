@@ -12,14 +12,15 @@ class Solution {
         
         while(right<n) {
             rightMostPosition.put(s.charAt(right), right);
-            right++;
+            
             
             if(rightMostPosition.size() == k+1){
                 int lowestIndex = Collections.min(rightMostPosition.values());
                 rightMostPosition.remove(s.charAt(lowestIndex));
                 left = lowestIndex+1;
             }
-            maxLength = Math.max(maxLength, right-left);
+            maxLength = Math.max(maxLength, right-left+1);
+            right++;
         }
         
         return maxLength;
