@@ -100,8 +100,7 @@ class Solution {
     //brackets then it is put in set otherwise if it is present is it not again put
     void solve(String s,int minInv,HashSet<String> duplicate){
         if(minInv==0){
-            int now=getMinInvalid(s);
-            if(now==0){
+            if(getMinInvalid(s)==0){
                 if(duplicate.contains(s)==false){
                     duplicate.add(s);
                     res.add(s);
