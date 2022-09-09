@@ -61,30 +61,41 @@
 //     }
 // }
 
+
+
 class Solution {
     List<String> res=new ArrayList<>();
     HashSet<String> visited=new HashSet<>();
     
     //so firstly checking that which of parenthesis is invalid
     //so pushing the ( bracket into stack and and then checking if ) bracket is there and checking that top of stack is (then pop ( bracket from stack and whatever bracket is extra put into hashset and getting size of that stack
+    
     public int getMinInvalid(String s){
-        Stack<Character> st=new Stack<>();
+          Stack<Character> st = new Stack<>();
         
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)=='('){
-                st.push('(');
-            }else if(s.charAt(i)==')'){
-                if(st.size()>0 && st.peek()=='(')
-                    st.pop();
-                else{
-                    st.push(')');
+        for (int i=0; i<s.length(); i++) {
+            Character curChar = s.charAt(i);
+
+            
+            if (curChar == '(') {
+                st.push(curChar);
+            } else if (curChar == ')') {
+                if (st.size()==0) {
+                    st.push(curChar);
                 }
-            }else{
-                continue;
-            }
+                else if(st.peek() == '(') {
+                    st.pop();
+                } else {
+                    st.push(curChar);
+                }
+            } 
         }
+        
         return st.size();
     }
+    
+    
+    
     //so we will be checking if duplicate set is not present of same and set is not containing that 
     //brackets then it is put in set otherwise if it is present is it not again put
     void solve(String s,int minInv,HashSet<String> duplicate){
