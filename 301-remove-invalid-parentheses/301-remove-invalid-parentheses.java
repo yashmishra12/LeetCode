@@ -16,9 +16,9 @@ class Solution {
     public void helper(String s, int removal, HashSet<String> hs) {
         if (removal==0) {
            if (getMinRemovals(s)==0) {
-               if (!hs.contains(s)){
+               // if (!hs.contains(s)){
                     hs.add(s);
-               }
+               // }
            }
             return;
         }
