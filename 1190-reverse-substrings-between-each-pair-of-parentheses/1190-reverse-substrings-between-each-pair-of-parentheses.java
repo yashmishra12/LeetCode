@@ -1,8 +1,8 @@
 class Solution {
     public String reverseParentheses(String s) {
-//         if (s.length()==1) {
-//             return s;
-//         }
+        if (s.length()==1) {
+            return s;
+        }
         
         Stack<Character> st = new Stack<>();
         
