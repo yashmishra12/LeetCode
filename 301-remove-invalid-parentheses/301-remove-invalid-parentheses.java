@@ -25,7 +25,7 @@ class Solution {
             String left = s.substring(0, i);
             String right = s.substring(i+1);
             
-            if (!visited.contains(left+right)) {
+            if (visited.contains(left+right)==false) {
                 visited.add(left+right);
                 helper(left+right, removal-1, hs);
             }
