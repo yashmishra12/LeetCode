@@ -4,7 +4,7 @@ class Solution {
     public List<String> removeInvalidParentheses(String s) {
     
         int minRemovals = getMinRemovals(s);
-        HashSet<String> hs = new HashSet<>(); //checks duplicate
+        HashSet<String> hs = new HashSet<>();
         helper(s, minRemovals, hs);
         
         List<String> result = new ArrayList<>(hs);
@@ -14,17 +14,17 @@ class Solution {
     }
     
     public void helper(String s, int removal, HashSet<String> hs) {
+        if (removal==0) {
+           if (getMinRemovals(s)==0) {
+                hs.add(s);
 
-       if (removal==0 && getMinRemovals(s)==0) {
-           hs.add(s);
-           return;
-       }
-
+           }
+            return;
+        }
         
         for (int i=0; i<s.length(); i++) {
             String left = s.substring(0, i);
             String right = s.substring(i+1);
-            
             if (visited.contains(left+right)==false) {
                 visited.add(left+right);
                 helper(left+right, removal-1, hs);
