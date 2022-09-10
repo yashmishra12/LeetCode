@@ -1,8 +1,10 @@
 class Solution {
-    public String removeKdigits(String num, int k) {
-      
-        Stack<Character> st = new Stack<>();
+    public String removeKdigits(String num, int k) { 
+        if (k==num.length()) {
+            return "0";
+        }
         
+        Stack<Character> st = new Stack<>();
         st.push(num.charAt(0));
         
         for(int i = 1; i<num.length();i++) {
@@ -15,7 +17,7 @@ class Solution {
             st.push(curChar);
         }
         
-        while(k>0) {
+        while(k>0) { // removes digits from end
             st.pop();
             k--;
         }
