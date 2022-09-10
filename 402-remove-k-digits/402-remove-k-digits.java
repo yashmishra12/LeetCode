@@ -1,10 +1,6 @@
 class Solution {
     public String removeKdigits(String num, int k) {
-        
-        if (k==num.length()) {
-            return "0";
-        }
-        
+      
         Stack<Character> st = new Stack<>();
         
         st.push(num.charAt(0));
