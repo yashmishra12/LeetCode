@@ -5,7 +5,7 @@ public String lastSubstring(String s) {
     
     for(int currIndex = s.length() - 1 ; currIndex >= 0 ; currIndex--){
         if(s.charAt(currIndex) > s.charAt(maxIndex))
-            maxIndex = currIndex;
+            {maxIndex = currIndex;}
             
         else if(s.charAt(currIndex) == s.charAt(maxIndex)){
             int i = currIndex + 1;
