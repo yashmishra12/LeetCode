@@ -17,19 +17,19 @@ class Solution {
                      ));
             
         long curTime = 0;
-        int taskIndx = 0, ansIndx = 0;
+        int curPointer = 0, ansIndx = 0;
         
         
-        while(taskIndx < tasks.length || !pq.isEmpty()) {
+        while(curPointer < tasks.length || !pq.isEmpty()) {
             
-            if (pq.isEmpty() && curTime < sortedTasks[taskIndx][0]) {
+            if (pq.isEmpty() && curTime < sortedTasks[curPointer][0]) {
                 // When the heap is empty, try updating currTime to next task's enqueue time. 
-                curTime = sortedTasks[taskIndx][0];
+                curTime = sortedTasks[curPointer][0];
             }
             
-             while (taskIndx < tasks.length && curTime >= sortedTasks[taskIndx][0]) { 
-                pq.add(sortedTasks[taskIndx]);
-                ++taskIndx;
+             while (curPointer < tasks.length && curTime >= sortedTasks[curPointer][0]) { 
+                pq.add(sortedTasks[curPointer]);
+                ++curPointer;
             }
             
             int processTime = pq.peek()[1];
