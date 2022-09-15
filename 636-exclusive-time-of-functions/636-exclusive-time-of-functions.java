@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Solution {
-   public static int[] exclusiveTime(int n, List<String> logs) {
+   public int[] exclusiveTime(int n, List<String> logs) {
         Stack<Execution> callStack = new Stack<>();
         for (String log : logs) {
             callStack.push(new Execution(log));
