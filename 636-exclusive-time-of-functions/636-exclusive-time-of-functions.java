@@ -1,11 +1,6 @@
 import java.util.*;
 
 class Solution {
-    public static void main(String[] args) {
-    ArrayList<String> arr = new ArrayList<>(Arrays.asList("0:start:0","1:start:2","1:end:5","0:end:6"));
-        System.out.println(Arrays.toString(exclusiveTime(2, arr)));
-        
-    }
    public static int[] exclusiveTime(int n, List<String> logs) {
         Stack<Execution> callStack = new Stack<>();
         for (String log : logs) {
@@ -27,12 +22,16 @@ class Solution {
             else {
                 //execution Stack will be a start, so we calculate how long it took
                 int executionTime = 1 + (executing.time - callStack.pop().time);
+                
                 //update solution after processing
                 solution[executing.id] += executionTime;
+               
                 //clean the background and update the time removing the subprocess execution time
                 while (!backgroundExecution.isEmpty()) {
                     Execution toExecute = backgroundExecution.pop();
-                    toExecute.time -= executionTime; // here you tell the process below to delete the time for the above process
+                    
+                    // here you tell the process below to delete the time for the above process
+                    toExecute.time -= executionTime; 
                     callStack.push(toExecute);
                 }
             }
