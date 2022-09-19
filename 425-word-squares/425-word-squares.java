@@ -1,13 +1,13 @@
 class Solution {
     HashMap<String, List<String>> map = new HashMap<>();
+    
     public List<List<String>> wordSquares(String[] words) {
         List<List<String>> result = new ArrayList<>();
         createPrefixMap(words);
         
         for(int i=0; i<words.length; i++) {
-            LinkedList<String> list = new LinkedList<>();
-            list.add(words[i]);
-            
+            LinkedList<String> list = new LinkedList<>(Arrays.asList(words[i]));
+            // list.add(words[i]); //add each word as the first word, one by one
             backTrack(1, list, result, words[i].length());
         }
         return result;
