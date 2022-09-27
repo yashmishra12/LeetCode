@@ -12,12 +12,12 @@ class Solution {
                         empty++;
                     }
                     
-                    if(empty < col && box[i][empty] == '.') {
-                        box[i][empty] = '#';
-                        box[i][j] = '.';
-                    } 
+                    // if(empty < col && box[i][empty] == '.') {
+                    //     box[i][empty] = '#';
+                    //     box[i][j] = '.';
+                    // } 
                     //empty fell out of range
-                    else if( empty-1<col && box[i][empty-1]=='.'){ 
+                    if( empty-1<col && box[i][empty-1]=='.'){ 
                         box[i][empty-1] = '#';
                         box[i][j] = '.';
                     }
