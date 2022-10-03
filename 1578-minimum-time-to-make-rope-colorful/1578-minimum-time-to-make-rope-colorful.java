@@ -4,17 +4,31 @@ class Solution {
         
         
         
-        for(int i=1; i<n; i++) {
-            if(s.charAt(i)!=s.charAt(i-1)) {
-                ans += groupSum - groupMax;
-                groupSum = 0;
-                groupMax = 0;
-            }
-            groupSum += neededTime[i];
-            groupMax = Math.max(groupMax, neededTime[i]);
-        }
+//         for(int i=1; i<n; i++) {
+//             if(s.charAt(i)!=s.charAt(i-1)) {
+//                 ans += groupSum - groupMax;
+//                 groupSum = 0;
+//                 groupMax = 0;
+//             }
+//             groupSum += neededTime[i];
+//             groupMax = Math.max(groupMax, neededTime[i]);
+//         }
         
-        ans += groupSum - groupMax;
+//         ans += groupSum - groupMax;
+        
+//         return ans;
+        
+        for(int i=1; i<n; i++) {
+            if (s.charAt(i)==s.charAt(i-1)) {
+                if (neededTime[i]>neededTime[i-1]) {
+                    ans += neededTime[i-1];
+                    
+                }else {
+                    ans += neededTime[i];
+                    neededTime[i] = neededTime[i-1];
+                }
+            }
+        }
         
         return ans;
     }
