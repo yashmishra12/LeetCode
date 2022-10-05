@@ -20,7 +20,10 @@ public class Solution {
 
     public void insert(int val, TreeNode node, int depth, int n) {
         if (node == null)
+           { return;}
+        if (depth>n) {
             return;
+        }
         if (depth == n - 1) {
             TreeNode t = node.left;
             node.left = new TreeNode(val);
