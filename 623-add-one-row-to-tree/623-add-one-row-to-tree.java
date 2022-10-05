@@ -18,13 +18,10 @@ public class Solution {
         return t;
     }
 
-    public void insert(int val, TreeNode node, int depth, int n) {
-        if (node == null)
-           { return;}
-        if (depth>n-1) {
-            return;
-        }
-        if (depth == n - 1) {
+    public void insert(int val, TreeNode node, int curDepth, int completeDepth) {
+        if (node == null){ return;}
+        if (curDepth>completeDepth-1) { return;}
+        if (curDepth == completeDepth - 1) {
             TreeNode t = node.left;
             node.left = new TreeNode(val);
             node.left.left = t;
@@ -32,8 +29,8 @@ public class Solution {
             node.right = new TreeNode(val);
             node.right.right = t;
         } else {
-            insert(val, node.left, depth + 1, n);
-            insert(val, node.right, depth + 1, n);
+            insert(val, node.left, curDepth + 1, completeDepth);
+            insert(val, node.right, curDepth + 1, completeDepth);
         }
     }
 }
