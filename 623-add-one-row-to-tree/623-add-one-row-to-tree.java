@@ -21,7 +21,7 @@ public class Solution {
     public void insert(int val, TreeNode node, int depth, int n) {
         if (node == null)
            { return;}
-        if (depth>n) {
+        if (depth>n-1) {
             return;
         }
         if (depth == n - 1) {
