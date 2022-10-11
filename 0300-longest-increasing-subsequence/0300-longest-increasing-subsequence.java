@@ -12,9 +12,8 @@ class Solution {
 			for(int j=0; j<i; j++) {
 				int otherNum = array[j];
 				
-				if(otherNum<curNum && length[j]+1 >= length[i]){
+				if(otherNum<curNum && length[j]+1 > length[i]){
 					length[i] = length[j]+1;
-					// seq[i] = j;
 				}
 			}
 			
