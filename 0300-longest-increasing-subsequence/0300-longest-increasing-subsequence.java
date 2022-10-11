@@ -2,25 +2,28 @@ class Solution {
     public int lengthOfLIS(int[] array) {
         if(array.length==1) {return 1;}
         int[] length = new int[array.length];
-		Arrays.fill(length, 1);
+		length[0]=1;
 		
-		int max = 0;
+        int overallMax = 0;
 		
 		for(int i=1;i<array.length; i++) {
-			int curNum = array[i];
-			
+			int max = 0;
+            
 			for(int j=0; j<i; j++) {
-				int otherNum = array[j];
 				
-				if(otherNum<curNum && length[j]+1 > length[i]){
-					length[i] = length[j]+1;
-				}
+                if(array[j] < array[i]) {
+                    if(length[j]>max){
+					    max = length[j];
+				    }
+                }
+				
 			}
-			
-			max = Math.max(max, length[i]);
+			length[i]=max+1;
+            
+			overallMax = Math.max(length[i], overallMax);
 
 		}
         
-        return max;
+        return overallMax;
     }
 }
