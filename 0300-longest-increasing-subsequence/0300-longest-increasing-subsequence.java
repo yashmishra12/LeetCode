@@ -21,16 +21,23 @@ class Solution {
         
     }
     public static int binarySearch(ArrayList<Integer> seq, int key) {
-        int lo = 0, hi = seq.size()-1;
-        while(lo<=hi){
-            int mid = lo+(hi-lo)/2;
+        int found = Collections.binarySearch(seq, key);
+		if(found<0) {
+			found += 1;
+			found *= -1;
+		}
+        return found;
+        
+//         int lo = 0, hi = seq.size()-1;
+//         while(lo<=hi){
+//             int mid = lo+(hi-lo)/2;
 
-            if(seq.get(mid)<key){
-                lo = mid+1;
-            } else {
-                hi = mid-1;
-            }
-        }
-        return hi+1;
+//             if(seq.get(mid)<key){
+//                 lo = mid+1;
+//             } else {
+//                 hi = mid-1;
+//             }
+//         }
+//         return hi+1;
     }
 }
