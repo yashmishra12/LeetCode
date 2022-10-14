@@ -91,21 +91,29 @@ class Solution {
             a[0]-b[0] == 0 ? b[1]-a[1]:a[0]-b[0]
         );
         
-        int[] dp = new int[envelopes.length+1];
-        Arrays.fill(dp, Integer.MAX_VALUE);
-        int len = 0;
+        // int[] dp = new int[envelopes.length+1];
+        ArrayList<Integer> dp = new ArrayList<>();
+        // Arrays.fill(dp, Integer.MAX_VALUE);
+        // int len = 0;
         
-        dp[0] = 0;
+        dp.add(envelopes[0][1]);
         
-        for(int i=0; i<envelopes.length; i++) {
-            int idx = Arrays.binarySearch(dp, envelopes[i][1]);
+        for(int i=1; i<envelopes.length; i++) {
+            int idx = Collections.binarySearch(dp, envelopes[i][1]);
             if(idx<0) {
                     idx += 1;
                     idx *= -1;
                 }
-            dp[idx] = envelopes[i][1];
-            len = Math.max(len, idx);
+            // dp[idx] = envelopes[i][1];
+            if(idx<dp.size()) {
+                 dp.set(idx, envelopes[i][1]);
+            }
+            else {
+                dp.add(envelopes[i][1]);
+            }
+           
+
         }
-        return len;
+        return dp.size();
     }
 }
