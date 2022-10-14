@@ -1,9 +1,8 @@
 class Solution {
     
     class Player {
-        public int score;
-        public int age;
-        
+        int score;
+        int age;  
         public Player(int score, int age) {
             this.score = score;
             this.age = age;
@@ -11,9 +10,9 @@ class Solution {
     }
     
     public int bestTeamScore(int[] scores, int[] ages) {
-
         int n = scores.length;
         if(n==1) {return scores[0];}
+        
         Player[] players = new Player[n];
         for(int i = 0; i < n; i++) {
             players[i] = new Player(scores[i], ages[i]);
