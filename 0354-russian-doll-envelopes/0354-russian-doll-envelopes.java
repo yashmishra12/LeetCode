@@ -12,10 +12,10 @@ class Solution {
         for(int i=1; i<envelopes.length; i++) {
             int idx = binarySearch(dp, envelopes[i][1]);
 // index of the search key, if it is in the array; otherwise, (-(insertion point) – 1)
-            if(idx<0) {
-                    idx += 1;
-                    idx *= -1;
-                }
+            // if(idx<0) {
+            //         idx += 1;
+            //         idx *= -1;
+            //     }
 
             if(idx<dp.size()) {
                  dp.set(idx, envelopes[i][1]);
