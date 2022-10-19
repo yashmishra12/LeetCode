@@ -1,6 +1,8 @@
 class Solution {
     public int[][] transpose(int[][] matrix) {
-        int n = matrix.length, c = matrix[0].length;
+        int n = matrix.length;
+        int c = matrix[0].length;
+        
         int[][] ans = new int[c][n];
 		
         for(int i=0; i<n; i++){
