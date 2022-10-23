@@ -7,17 +7,16 @@ class Solution {
         return image;
     }
     
-    public void dfs(int[][] image, int r, int c, int color, int newColor) {
-        if (image[r][c] == color) {
-            image[r][c] = newColor;
-            if (r >= 1) 
-                {dfs(image, r-1, c, color, newColor);}
-            if (c >= 1) 
-                {dfs(image, r, c-1, color, newColor);}
-            if (r+1 < image.length) 
-                {dfs(image, r+1, c, color, newColor);}
-            if (c+1 < image[0].length) 
-                {dfs(image, r, c+1, color, newColor);}
+    public void dfs(int[][] image, int i, int j, int color, int newColor) {
+        if(i<0 || i>=image.length || j<0 || j>=image[i].length || image[i][j] != color){
+            return;
         }
+        
+        image[i][j] = newColor;
+        
+        dfs(image, i+1, j, color, newColor);
+        dfs(image, i, j+1, color, newColor);
+        dfs(image, i-1, j, color, newColor);
+        dfs(image, i, j-1, color, newColor);
     }
 }
