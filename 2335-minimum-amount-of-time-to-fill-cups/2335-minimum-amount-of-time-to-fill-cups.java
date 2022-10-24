@@ -12,11 +12,11 @@ class Solution {
             int first= pq.poll();
             int second = pq.poll();
             
-            if(first==0 && second==0){
+            if(first<=0 && second<=0){
                 break;
             }
-            first = Math.max(0, --first);
-            second = Math.max(0, --second);
+            --first;
+            --second;
             
             pq.offer(first);
             pq.offer(second);
