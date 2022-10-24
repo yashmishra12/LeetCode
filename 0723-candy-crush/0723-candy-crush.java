@@ -28,15 +28,16 @@ class Solution {
     }
         
         for(int c=0; c<C; c++) {
-            int wr = R-1;
+            int anchor_row = R-1;
             for(int r=R-1; r>=0; r--) {
                 if(board[r][c]>0){
-                    board[wr--][c] = board[r][c];
-
+                    board[anchor_row][c] = board[r][c];
+                    anchor_row--;
                 }
             }
-            while(wr>=0) {
-                board[wr--][c] = 0;
+            
+            while(anchor_row>=0) {
+                board[anchor_row--][c] = 0; //filling empty spaces
             }
             
         }
