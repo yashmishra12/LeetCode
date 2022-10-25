@@ -13,7 +13,9 @@ class Solution {
             
             int curEnd = curInterval[1], nxtStart = nextInterval[0], nxtEnd = nextInterval[1];
             
-            if(curEnd>=nxtStart) curInterval[1] = Math.max(curEnd, nxtEnd);
+            if(curEnd>=nxtStart) {
+                curInterval[1] = Math.max(curEnd, nxtEnd);
+            }
             else {
                 curInterval = intervals[i];
                 res.add(curInterval);
