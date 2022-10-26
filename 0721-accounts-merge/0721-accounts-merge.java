@@ -1,6 +1,6 @@
 class Solution {
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
-        UnionFind uf = new UnionFind(accounts.size());
+        UnionFind uf = new UnionFind(accounts.size()); 
         
         Map<String, Integer> emailHM = new HashMap<>();
         for(int i=0; i<accounts.size();i++){
@@ -20,7 +20,8 @@ class Solution {
         
         // go through each account and find the UF root and merge
 		Map<Integer, Account> rootAccounts = new HashMap<>();
-		for (int accId = 0; accId < accounts.size(); accId++) {
+		
+        for (int accId = 0; accId < accounts.size(); accId++) {
 			List<String> account = accounts.get(accId);
 
 			int rootAccId = uf.getAbsoluteParent(accId);
@@ -42,20 +43,21 @@ class Solution {
 		int[] parent;
 		UnionFind(int n) {
 			parent = new int[n];
-			for (int i = 0; i < n; i++) parent[i] = i;
+			for (int i = 0; i < n; i++){
+                parent[i] = i;
+            }
 		}
 
 		private void union(int x, int y) {
 			int pX = getAbsoluteParent(x);
 			int pY = getAbsoluteParent(y);
 			if(pX!=pY){
-				parent[pX] = pY;
+				parent[pY] = pX;
 			}
 		}
 
 		private int getAbsoluteParent(int i){
 			if(parent[i]==i){
-				// absolute parent
 				return i;
 			}
 			parent[i]=getAbsoluteParent(parent[i]);
