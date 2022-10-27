@@ -2,9 +2,9 @@ class Solution {
     public int largestOverlap(int[][] img1, int[][] img2) {
         int max = 0;
         
-        for(int row=-img1.length+1; row<img1.length; row++) {
-            for(int col=-img1.length+1; col<img1.length; col++) {
-                max = Math.max(max, shiftAndCount(row, col, img1, img2));
+        for(int rowOffSet=-img1.length+1; rowOffSet<img1.length; rowOffSet++) {
+            for(int colOffSet=-img1.length+1; colOffSet<img1.length; colOffSet++) {
+                max = Math.max(max, shiftAndCount(rowOffSet, colOffSet, img1, img2));
             }
         }
         
@@ -23,7 +23,7 @@ class Solution {
                     continue;
                 }
                 
-                if(B[row][col] + A[finalRow][finalCol]==2) {
+                if(A[row][col] + B[finalRow][finalCol]==2) {
                     count++;
                 }
             }
