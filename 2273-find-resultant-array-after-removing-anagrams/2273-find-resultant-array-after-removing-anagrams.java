@@ -8,16 +8,15 @@ class Solution {
         }
         
         
-        for(int i=1; i<words.length-1; i++) {
+        for(int i=1; i<words.length; i++) {
             String freqStart = freq(words[start]);
             String freqI = freq(words[i]);
             
             if( freqStart.equals(freqI) ) {
-                // i++;
+                continue;
             }else {
                 ans.add(words[start]);
                 start = i;
-                // i++;
             }
         }
         
@@ -26,9 +25,9 @@ class Solution {
         String freqStart = freq(words[start]);
         String freqEnd = freq(words[words.length-1]);
         
-        if(!freqStart.equals(freqEnd)) {
-				ans.add(words[words.length-1]);
-			}
+			// if(!freqStart.equals(freqEnd)) {
+			// 	ans.add(words[words.length-1]);
+			// }
         
         return ans;
     }
