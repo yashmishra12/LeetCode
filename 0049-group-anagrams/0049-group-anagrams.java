@@ -3,10 +3,8 @@ class Solution {
         HashMap<String, List<String>> hm = new HashMap<>();
         
         for(String str: strs){
-            char[] arr = str.toCharArray();
-            Arrays.sort(arr);
-            String key = String.valueOf(arr);
-            // String key = String.join("", arr);
+            int[] arr = convertor(str);
+            String key = Arrays.toString(arr);
             if(hm.containsKey(key)){
                 hm.get(key).add(str);
             }else {
@@ -23,5 +21,13 @@ class Solution {
         }
         
         return res;
+    }
+    
+    private int[] convertor(String s) {
+        int[] arr = new int[26];
+        for(int i=0; i<s.length(); i++) {
+            arr[s.charAt(i)-'a']++;
+        }
+        return arr;
     }
 }
