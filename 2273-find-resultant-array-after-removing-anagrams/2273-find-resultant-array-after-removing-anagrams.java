@@ -25,10 +25,7 @@ class Solution {
         String freqStart = freq(words[start]);
         String freqEnd = freq(words[words.length-1]);
         
-			// if(!freqStart.equals(freqEnd)) {
-			// 	ans.add(words[words.length-1]);
-			// }
-        
+
         return ans;
     }
     
