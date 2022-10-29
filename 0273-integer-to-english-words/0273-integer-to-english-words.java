@@ -1,4 +1,7 @@
 class Solution {
+    private int BILLION = 1000000000;
+    private int MILLION = 100000000;
+    
   public String one(int num) {
     switch(num) {
       case 1: return "One";
