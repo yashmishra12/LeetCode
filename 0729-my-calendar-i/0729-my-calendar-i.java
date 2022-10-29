@@ -7,10 +7,10 @@ class MyCalendar {
     }
     
     public boolean book(int start, int end) {
-        Integer prev = calendar.floorKey(start);
-        Integer next = calendar.ceilingKey(start);
+        Integer prevStart = calendar.floorKey(start);
+        Integer nextStart = calendar.ceilingKey(start);
         
-        if ((prev==null || calendar.get(prev)<=start) && (next==null || end<=next)) {
+        if ((prevStart==null || calendar.get(prevStart)<=start) && (nextStart==null || end<=nextStart)) {
             calendar.put(start, end);
             return true;
         }
