@@ -1,7 +1,7 @@
 class Solution {
     public int earliestFullBloom(int[] plantTime, int[] growTime) {
 
-        //PlantTime is fixed, so we want to sort growtime in decending order to make sure the flower needs more time to grow can be planted first
+        //PlantTime is fixed, sort growtime in decending order to ensure the flower that needs more time to grow is planted first
         PriorityQueue<Plant> pg = new PriorityQueue<>((a,b) -> b.growTime - a.growTime);
         
         for (int i = 0; i < plantTime.length; i++) {
