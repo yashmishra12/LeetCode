@@ -9,8 +9,7 @@ class Solution {
             pg.add(p);
         }
 		
-        int max = 0;
-        int cum = 0;
+        int max = 0, cum = 0;
 
         while(!pg.isEmpty()){
              //find max time = cumulative plant time + current plant time + current growth time
