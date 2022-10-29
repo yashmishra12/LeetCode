@@ -2,7 +2,7 @@ class Solution {
     private int BILLION = 1000000000;
     private int MILLION = 100000000;
     
-  public String one(int num) {
+  public String oneDigit(int num) {
     switch(num) {
       case 1: return "One";
       case 2: return "Two";
@@ -50,27 +50,27 @@ class Solution {
   public String twoDigit(int num) {
     if (num == 0){return "";}
     else if (num < 10)
-      {return one(num);}
+      {return oneDigit(num);}
     else if (num < 20)
       {return twoLessThan20(num);}
     else {
       int tenner = num / 10;
       int rest = num%10;
-      if (rest != 0) {return tens(tenner) + " " + one(rest);}
+      if (rest != 0) {return tens(tenner) + " " + oneDigit(rest);}
       else {return tens(tenner);}
     }
   }
 
   public String threeDigit(int num) {
     int hundred = num / 100;
-    int rest = num - hundred * 100;
+    int rest = num - (hundred * 100);
     String res = "";
     if (hundred*rest != 0)
-      res = one(hundred) + " Hundred " + twoDigit(rest);
+      res = oneDigit(hundred) + " Hundred " + twoDigit(rest);
     else if ((hundred == 0) && (rest != 0))
       res = twoDigit(rest);
     else if ((hundred != 0) && (rest == 0))
-      res = one(hundred) + " Hundred";
+      res = oneDigit(hundred) + " Hundred";
     return res;
   }
 
