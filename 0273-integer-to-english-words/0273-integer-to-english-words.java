@@ -58,7 +58,7 @@ class Solution {
     }
   }
 
-  public String three(int num) {
+  public String threeDigit(int num) {
     int hundred = num / 100;
     int rest = num - hundred * 100;
     String res = "";
@@ -81,20 +81,20 @@ class Solution {
 
     StringBuilder result = new StringBuilder();
     if (billion != 0){
-      result.append(three(billion) + " Billion");  
+      result.append(threeDigit(billion) + " Billion");  
     }
       
     if (million != 0) {
       if (!result.isEmpty()) {result.append(" ");}
-      result.append(three(million) + " Million");
+      result.append(threeDigit(million) + " Million");
     }
     if (thousand != 0) {
       if (!result.isEmpty()) {result.append(" ");}
-      result.append(three(thousand) + " Thousand");
+      result.append(threeDigit(thousand) + " Thousand");
     }
     if (rest != 0) {
       if (!result.isEmpty()) {result.append(" ");}
-      result.append(three(rest));
+      result.append(threeDigit(rest));
     }
       
     return result.toString();
