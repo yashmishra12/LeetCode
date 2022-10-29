@@ -44,7 +44,7 @@ class Solution {
     return "";
   }
 
-  public String two(int num) {
+  public String twoDigit(int num) {
     if (num == 0){return "";}
     else if (num < 10)
       {return one(num);}
@@ -63,9 +63,9 @@ class Solution {
     int rest = num - hundred * 100;
     String res = "";
     if (hundred*rest != 0)
-      res = one(hundred) + " Hundred " + two(rest);
+      res = one(hundred) + " Hundred " + twoDigit(rest);
     else if ((hundred == 0) && (rest != 0))
-      res = two(rest);
+      res = twoDigit(rest);
     else if ((hundred != 0) && (rest == 0))
       res = one(hundred) + " Hundred";
     return res;
