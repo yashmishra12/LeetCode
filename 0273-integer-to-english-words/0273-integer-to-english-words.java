@@ -77,10 +77,10 @@ class Solution {
   public String numberToWords(int num) {
     if (num == 0) {return "Zero";}
       
-    int billion = num / 1000000000;
-    int million = (num - billion * 1000000000) / 1000000;
-    int thousand = (num - billion * 1000000000 - million * 1000000) / 1000;
-    int rest = num - billion * 1000000000 - million * 1000000 - thousand * 1000;
+    int billion = num / 1000_000_000;
+    int million = (num - billion * 1000_000_000) / 1000_000;
+    int thousand = (num - billion * 1000_000_000 - million * 1000_000) / 1000;
+    int rest = num - billion * 1000_000_000 - million * 1000_000 - thousand * 1000;
 
     StringBuilder result = new StringBuilder();
     if (billion != 0){
