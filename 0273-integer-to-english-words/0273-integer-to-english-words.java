@@ -65,7 +65,7 @@ class Solution {
     int hundred = num / 100;
     int rest = num - (hundred * 100);
     String res = "";
-    if (hundred*rest != 0)
+    if (hundred!=0 && rest != 0)
       res = oneDigit(hundred) + " Hundred " + twoDigit(rest);
     else if ((hundred == 0) && (rest != 0))
       res = twoDigit(rest);
