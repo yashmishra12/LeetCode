@@ -30,7 +30,7 @@ class Solution {
     return "";
   }
 
-  public String ten(int num) {
+  public String tens(int num) {
     switch(num) {
       case 2: return "Twenty";
       case 3: return "Thirty";
@@ -45,19 +45,16 @@ class Solution {
   }
 
   public String two(int num) {
-    if (num == 0)
-      return "";
+    if (num == 0){return "";}
     else if (num < 10)
-      return one(num);
+      {return one(num);}
     else if (num < 20)
-      return twoLessThan20(num);
+      {return twoLessThan20(num);}
     else {
       int tenner = num / 10;
-      int rest = num - tenner * 10;
-      if (rest != 0)
-        return ten(tenner) + " " + one(rest);
-      else
-        return ten(tenner);
+      int rest = num%10;
+      if (rest != 0) {return tens(tenner) + " " + one(rest);}
+      else {return tens(tenner);}
     }
   }
 
@@ -75,29 +72,31 @@ class Solution {
   }
 
   public String numberToWords(int num) {
-    if (num == 0)
-      return "Zero";
-
+    if (num == 0) {return "Zero";}
+      
     int billion = num / 1000000000;
     int million = (num - billion * 1000000000) / 1000000;
     int thousand = (num - billion * 1000000000 - million * 1000000) / 1000;
     int rest = num - billion * 1000000000 - million * 1000000 - thousand * 1000;
 
     StringBuilder result = new StringBuilder();
-    if (billion != 0)
-      result.append(three(billion) + " Billion");
+    if (billion != 0){
+      result.append(three(billion) + " Billion");  
+    }
+      
     if (million != 0) {
-      if (! result.isEmpty()) {result.append(" ");}
+      if (!result.isEmpty()) {result.append(" ");}
       result.append(three(million) + " Million");
     }
     if (thousand != 0) {
-      if (! result.isEmpty()) {result.append(" ");}
+      if (!result.isEmpty()) {result.append(" ");}
       result.append(three(thousand) + " Thousand");
     }
     if (rest != 0) {
-      if (! result.isEmpty()) {result.append(" ");}
+      if (!result.isEmpty()) {result.append(" ");}
       result.append(three(rest));
     }
+      
     return result.toString();
   }
 }
