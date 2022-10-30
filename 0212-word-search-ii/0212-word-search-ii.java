@@ -46,8 +46,7 @@ class Solution {
     public void backtracking(int row, int col, Trie parent) {
         Character letter = this._board[row][col];
         Trie curNode = parent.children.get(letter);
-        
-        if(curNode==null) {return;}
+    
         
         if(curNode.word!=null) { //found a word
             this._result.add(curNode.word);
@@ -72,8 +71,8 @@ class Solution {
         }
 
         this._board[row][col] = letter;
-        if(curNode.children.isEmpty()) {
-            parent.children.remove(letter);
-        }
+        // if(curNode.children.isEmpty()) {
+        //     parent.children.remove(letter);
+        // }
     }
 }
