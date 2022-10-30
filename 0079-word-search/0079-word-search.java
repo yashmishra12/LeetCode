@@ -31,7 +31,7 @@ class Solution {
             return false;
         }
         
-        boolean ret = false;
+        boolean ret = false; //it reaches here because word and board char match
         this.board[row][col] = '#';
         
         int[] x = {0,1,0,-1};
@@ -44,7 +44,7 @@ class Solution {
             }
         }
         
-        this.board[row][col] = word.charAt(index);
+        this.board[row][col] = word.charAt(index); //backtrack
         return ret;
     }
 }
