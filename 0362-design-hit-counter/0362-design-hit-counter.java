@@ -9,13 +9,13 @@ class HitCounter {
     public void hit(int timestamp) {
         q.add(timestamp);
         
-        int start = timestamp - 299;
-        while(!q.isEmpty() && q.peek()<start) {q.poll();}
+        int start = timestamp - 300;
+        while(!q.isEmpty() && q.peek()<=start) {q.poll();}
     }
     
     public int getHits(int timestamp) {
-        int start = timestamp - 299;
-        while(!q.isEmpty() && q.peek()<start) {q.poll();}
+        int start = timestamp - 300;
+        while(!q.isEmpty() && q.peek()<=start) {q.poll();}
         return q.size();
     }
 }
