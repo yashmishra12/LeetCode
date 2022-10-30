@@ -35,11 +35,12 @@ class Solution {
             int curNode = q.poll();
             List<Integer> value = hm.get(curNode);
             if(value==null) continue;
+            
             for(Integer a: value){
                 indeg[a]--;
                 TreeSet<Integer> arr = res.get(a);
-                arr.add(curNode);
-                arr.addAll(res.get(curNode));
+                arr.add(curNode); //adding current parent. 
+                arr.addAll(res.get(curNode)); //adding parent's parent. 
                 res.set(a, arr);
                 if(indeg[a]==0){
                     q.offer(a);
