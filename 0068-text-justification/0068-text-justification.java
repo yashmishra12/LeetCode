@@ -4,16 +4,21 @@ class Solution {
         int i = 0;
         
         while(i<words.length) {
-            int wordCharCount = words[i].length();
+            int wordCharCount = words[i].length(); //ek word to fit pakka hoga. 
             int j=i+1;
             int candidates = j-i-1;
             
-            while(j<words.length && 
-                  wordCharCount+candidates+words[j].length()+1 <= maxWidth) {
+            //Decide the numbers of words that can fit in one line
+            
+            while(j<words.length &&
+                  //wordCharCount --> current word length
+                  //words[j]+1 -----> new word plus its space
+                  //candidates -----> pehle jitne words hai unka 1 space each
+                wordCharCount+candidates+(1+words[j].length()) <= maxWidth) {
                 
-                wordCharCount += words[j].length();
-                candidates++;
-                j++;
+                    wordCharCount += words[j].length();
+                    candidates++;
+                    j++;
             }
             
             int vacancy = maxWidth - wordCharCount;
@@ -21,7 +26,7 @@ class Solution {
             int atleast = candidates == 0 ? 0: vacancy/candidates;
             int extra = candidates == 0 ? 0: vacancy%candidates;
             
-            if(j==words.length) {
+            if(j==words.length) { //last line hai
                 atleast = 1;
                 extra=0;
             }
@@ -34,21 +39,21 @@ class Solution {
                     break;
                 }
                 
-                for(int e=0; e<atleast;e++) {
+                for(int e=0; e<atleast;e++) { //required space daalo
                     sb.append(" ");
                 }
-                if(extra>0) {
+                if(extra>0) { //extra space hai to daalo: ek-ek karke
                     sb.append(" ");
                     extra--;
                 }
             }
             
-            while(sb.length()<maxWidth) {
+            while(sb.length()<maxWidth) { //pad space on right to make length = maxWidth
                 sb.append(" ");
             }
             
             list.add(sb.toString());
-            i=j;
+            i=j; //new line ab shuru karo. i will move to j. 
             
         }
         
