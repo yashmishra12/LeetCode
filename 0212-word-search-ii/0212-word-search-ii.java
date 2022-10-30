@@ -47,6 +47,8 @@ class Solution {
         Character letter = this._board[row][col];
         Trie curNode = parent.children.get(letter);
         
+        if(curNode==null) {return;}
+        
         if(curNode.word!=null) { //found a word
             this._result.add(curNode.word);
             curNode.word = null;
