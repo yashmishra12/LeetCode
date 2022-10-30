@@ -71,8 +71,8 @@ class Solution {
         }
 
         this._board[row][col] = letter;
-        // if(curNode.children.isEmpty()) {
-        //     parent.children.remove(letter);
-        // }
+        if(curNode.children.isEmpty()) {
+            parent.children.remove(letter);
+        }
     }
 }
