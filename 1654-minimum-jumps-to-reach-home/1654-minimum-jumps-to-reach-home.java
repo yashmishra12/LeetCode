@@ -14,7 +14,7 @@ class Solution {
        if(x==0) {return 0;}
         
         int steps = 0;
-        int furthest = 6000;
+        int furthest = 5999;
          Set<Integer> forbiddenSpots = new HashSet<>();
         for(int i=0; i<forbidden.length; i++) {
             forbiddenSpots.add(forbidden[i]);
