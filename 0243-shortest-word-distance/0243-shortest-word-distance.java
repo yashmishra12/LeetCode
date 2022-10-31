@@ -12,9 +12,7 @@ class Solution {
                 index2.add(i);
             }
         }
-        
-        // Collections.sort(index1);
-        // Collections.sort(index2);
+
         
         int i=0;
         int j = 0;
@@ -24,6 +22,9 @@ class Solution {
             int dist1 = index1.get(i);
             int dist2 = index2.get(j);
             min = Math.min(min, Math.abs(dist1-dist2));
+            if(min==1){
+                return 1;
+            }
             if(dist1>dist2){
                 j++;
             }else if(dist2>dist1){
