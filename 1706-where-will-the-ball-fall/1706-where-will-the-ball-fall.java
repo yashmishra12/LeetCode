@@ -5,21 +5,21 @@ class Solution {
         
         int[] ans = new int[col];
         for(int j=0; j<col; j++){
-            int curPos = j;
-            int newPos;
+            int curCol = j;
+            int newCol;
             
             for(int i=0; i<row; i++) {
-                newPos = curPos + grid[i][curPos];
+                newCol = curCol + grid[i][curCol]; //+1 --> right, -1 ---> left
                 
-                if(newPos<0 || newPos>=col || grid[i][curPos] != grid[i][newPos]){
-                    curPos = -1;
+                if(newCol<0 || newCol>=col || grid[i][curCol] != grid[i][newCol]){ //3rd cond --> interescting lines
+                    curCol = -1;
                     break;
                 }
                 
-                curPos = newPos;
+                curCol = newCol;
             }
             
-            ans[j] = curPos;
+            ans[j] = curCol;
         }
         
         return ans;
