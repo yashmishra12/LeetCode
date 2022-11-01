@@ -18,7 +18,7 @@ class Solution {
 
         List<Interval> result = new ArrayList<>();
 
-        PriorityQueue<Interval> pq = new PriorityQueue<>((a, b) -> a.start - b.start);
+        PriorityQueue<Interval> pq = new PriorityQueue<>((a, b) -> a.start != b.start? a.start - b.start: a.end - b.end);
         
          for(List<Interval> period: avails) {
              for(Interval s: period) {
