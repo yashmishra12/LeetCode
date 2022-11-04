@@ -1,8 +1,8 @@
 class Solution {
-    // sb;
+    StringBuilder sb;
     public String reverseVowels(String s) {
         
-        StringBuilder sb = new StringBuilder(s);
+        sb = new StringBuilder(s);
 
         HashSet<Character> set = new HashSet<>(Arrays.asList('a','A','e','E','i','I','o','O','u','U'));
         
@@ -21,20 +21,17 @@ class Solution {
             }
  
             if(l<=r) {break;}
-            sb = swap(sb,r++,l--);
+            swap(sb,r++,l--);
          }
-            
-            
 
         
         return sb.toString();
     }
     
-    public static StringBuilder swap(StringBuilder sb, int i, int j){
+    public static void swap(StringBuilder sb, int i, int j){
         char c1 = sb.charAt(i);
         char c2 = sb.charAt(j);
         sb.setCharAt(i, c2);
         sb.setCharAt(j, c1);
-        return sb;
     }
 }
