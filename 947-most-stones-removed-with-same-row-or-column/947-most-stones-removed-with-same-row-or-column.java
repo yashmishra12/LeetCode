@@ -1,12 +1,10 @@
 
 class Solution {
     class DisjointSet {
-    List<Integer> rank = new ArrayList<>();
     List<Integer> parent = new ArrayList<>();
     List<Integer> size = new ArrayList<>(); 
     public DisjointSet(int n) {
         for(int i = 0;i<=n;i++) {
-            rank.add(0); 
             parent.add(i); 
             size.add(1); 
         }
@@ -36,6 +34,7 @@ class Solution {
         }
     }
 }
+    
     public int removeStones(int[][] stones) {
         int maxRow = 0;
         int maxCol = 0;
@@ -47,21 +46,24 @@ class Solution {
         
         DisjointSet ds = new DisjointSet(maxRow+maxCol+1);
         HashMap<Integer, Integer> stoneNodes = new HashMap<>();
+        HashSet<Integer> hs = new HashSet<>();
         
         for(int i=0; i<n; i++) {
             int nodeRow = stones[i][0];
-            int nodeCol = stones[i][1] + maxRow + 1;
+            int nodeCol = maxRow + stones[i][1] + 1;
             ds.unionBySize(nodeRow, nodeCol);
-            stoneNodes.put(nodeRow, 1);
-            stoneNodes.put(nodeCol, 1);
+            hs.add(nodeRow);
+            hs.add(nodeCol);
         }
         
         int count = 0;
-        for(Map.Entry<Integer, Integer> it: stoneNodes.entrySet()){
-            if(ds.findUPar(it.getKey()) == it.getKey()){
+        
+        for(Integer i: hs){
+            if(ds.findUPar(i)==i){
                 count++;
             }
         }
+
         
         return stones.length - count;
     }
