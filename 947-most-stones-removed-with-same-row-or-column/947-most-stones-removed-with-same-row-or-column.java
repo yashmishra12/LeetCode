@@ -36,6 +36,9 @@ class Solution {
 }
     
     public int removeStones(int[][] stones) {
+        if(stones.length==1){
+            return 0;
+        }
         int maxRow = 0;
         int maxCol = 0;
         int n = stones.length;
