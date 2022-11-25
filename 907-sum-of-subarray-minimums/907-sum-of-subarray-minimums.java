@@ -34,8 +34,8 @@ class Solution {
         for(int i=0; i<len; i++){
             int leftLen = i-leftMin[i];
             int rightLen = rightMin[i]-i;
-            // long temp = ;
-            res = (res + ((long)arr[i]*leftLen*rightLen)%mod) %mod;
+            long temp = ((long)arr[i]*leftLen*rightLen)%mod;
+            res = (res + temp) %mod;
         }
         return (int)res;
     }
