@@ -4,15 +4,16 @@ class Solution {
         Map<Integer, Integer> lossesCount = new HashMap<>();
 
         for (int[] match : matches) {
-            int winner = match[0], loser = match[1];
+            int winner = match[0];
+            int loser = match[1];
             seen.add(winner);
             seen.add(loser);
             lossesCount.put(loser, lossesCount.getOrDefault(loser, 0) + 1);
         }
 
         // Add players with 0 or 1 loss to the corresponding list.
-        List<List<Integer>> answer =
-            Arrays.asList(new ArrayList<>(), new ArrayList<>());
+        List<List<Integer>> answer = Arrays.asList(new ArrayList<>(), new ArrayList<>());
+        
         for (int player : seen) {
             if (!lossesCount.containsKey(player)) {
                 answer.get(0).add(player);
