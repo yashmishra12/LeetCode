@@ -23,11 +23,16 @@ class Solution {
     }
 
     public void dfs(TreeNode node, List<Integer> leafValues) {
-        if (node != null) {
-            if (node.left == null && node.right == null)
-                leafValues.add(node.val);
-            dfs(node.left, leafValues);
-            dfs(node.right, leafValues);
+        if(node==null) {
+            return;
         }
+
+        if (node.left == null && node.right == null){
+            leafValues.add(node.val);
+            return;
+        }
+            
+        dfs(node.left, leafValues);
+        dfs(node.right, leafValues);
     }
 }
