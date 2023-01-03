@@ -12,10 +12,11 @@ class Solution {
                 
                 if(curChar-prevChar<0){
                     unsorted = true;
+                    break;
                 }
                 
             }
-            if(unsorted==true){
+            if(unsorted){
                 res++;
             }
         }
