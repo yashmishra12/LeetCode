@@ -10,9 +10,7 @@ class Solution {
         
         int res = 0;
         
-        for(Map.Entry<Integer, Integer> e: mp.entrySet()){
-            Integer num = e.getKey();
-            Integer freq = e.getValue();
+        for(Integer freq: mp.values()){
             
             if(freq==1){
                 return -1;
