@@ -15,11 +15,13 @@ class Solution {
             if(freq==1){
                 return -1;
             }
-            
+            int x = freq/3;
             if(freq%3==0){
-                res += freq/3;
-            }else {
-                res += freq/3 + 1;
+                res += x;
+            }else if(freq%3 == 1) {
+                res += (x-1) + 2;
+            } else if(freq%3==2) {
+                res += (x + 1);
             }
         }
         
