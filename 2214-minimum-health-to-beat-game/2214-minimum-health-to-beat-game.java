@@ -1,8 +1,7 @@
 class Solution {
     public long minimumHealth(int[] damage, int armor) {
         long sum = 1;
-        long max = Integer.MIN_VALUE;
-        long lo = Integer.MAX_VALUE;
+        long max = Long.MIN_VALUE;
 
         for(int a: damage){
             sum += a;
