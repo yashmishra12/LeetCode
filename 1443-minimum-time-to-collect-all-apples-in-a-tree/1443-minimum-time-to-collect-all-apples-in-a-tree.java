@@ -36,8 +36,6 @@ class Solution {
             if(childTime>0 || hasApple.get(child)) {
                 totalTime += childTime + 2;
             }
-            
-            
         }
         return totalTime;
     }
