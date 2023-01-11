@@ -2,21 +2,18 @@ class Solution {
     public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
         Map<Integer, List<Integer>> adj = new HashMap<>();
         for(int[] edge: edges) {
-            int a = edge[0];
-            int b = edge[1];
+            int a = edge[0], b = edge[1];
             
             if(!adj.containsKey(a)) {
                 adj.put(a, new ArrayList<Integer>());
             }
             
-            adj.get(a).add(b);
             if(!adj.containsKey(b)){
                 adj.put(b, new ArrayList<Integer>());
             }
             
+            adj.get(a).add(b);
             adj.get(b).add(a);
-            // adj.computeIfAbsent(a, value -> new ArrayList<Integer>()).add(b);
-            // adj.computeIfAbsent(b, value -> new ArrayList<Integer>()).add(a);
         }
         
         return dfs(0, -1, adj, hasApple);
@@ -27,8 +24,7 @@ class Solution {
             return 0;
         }
         
-        int totalTime = 0;
-        int childTime = 0;
+        int totalTime = 0, childTime = 0;
         
         for(int child: adj.get(node)) {
             if(child==parent) {
