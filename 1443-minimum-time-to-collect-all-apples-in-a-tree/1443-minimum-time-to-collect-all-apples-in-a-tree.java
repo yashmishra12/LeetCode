@@ -45,10 +45,10 @@ class Solution {
 	public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
 		List<List<Integer>> adjacencyList = new ArrayList<>();
 
-		for(int i=0;i<n;i++)
-		{
-			adjacencyList.add(new ArrayList<Integer>(0));
+		for(int i=0;i<n;i++){
+			adjacencyList.add(new ArrayList<Integer>());
 		}
+        
 		boolean visited[] = new boolean[n];
 
 		for(int[] e:edges){
@@ -67,14 +67,12 @@ class Solution {
 
 		for(int i:adjacencyList.get(index))
 		{
-			if(!visited[i])
-			{
+			if(!visited[i]){
 				appleCollectedTime += dfs(adjacencyList,visited,hasApple,i);
 			}
 		}
 
-		if(index == 0)
-		{
+		if(index == 0){
 			return appleCollectedTime;
 		}
 
