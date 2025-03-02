@@ -10,6 +10,7 @@ I post my LeetCode solutions here.
 | [0026-remove-duplicates-from-sorted-array](https://github.com/yashmishra12/LeetCode/tree/master/0026-remove-duplicates-from-sorted-array) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/yashmishra12/LeetCode/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/yashmishra12/LeetCode/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
+| [0189-rotate-array](https://github.com/yashmishra12/LeetCode/tree/master/0189-rotate-array) |
 | [0238-product-of-array-except-self](https://github.com/yashmishra12/LeetCode/tree/master/0238-product-of-array-except-self) |
 | [2486-most-frequent-even-element](https://github.com/yashmishra12/LeetCode/tree/master/2486-most-frequent-even-element) |
 ## Hash Table
@@ -24,6 +25,7 @@ I post my LeetCode solutions here.
 |  |
 | ------- |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/yashmishra12/LeetCode/tree/master/0026-remove-duplicates-from-sorted-array) |
+| [0189-rotate-array](https://github.com/yashmishra12/LeetCode/tree/master/0189-rotate-array) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -37,4 +39,8 @@ I post my LeetCode solutions here.
 |  |
 | ------- |
 | [0238-product-of-array-except-self](https://github.com/yashmishra12/LeetCode/tree/master/0238-product-of-array-except-self) |
+## Math
+|  |
+| ------- |
+| [0189-rotate-array](https://github.com/yashmishra12/LeetCode/tree/master/0189-rotate-array) |
 <!---LeetCode Topics End-->
