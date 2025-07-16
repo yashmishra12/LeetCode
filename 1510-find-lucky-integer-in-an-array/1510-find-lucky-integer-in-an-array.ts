@@ -6,9 +6,6 @@ function findLucky(arr: number[]): number {
     for (let i = arr.length - 1; i >= 0; i--) {
         freq = 1;
         const current = arr[i];
-        if(current==1) {
-
-        }
         while (arr[i] == arr[i - 1]) {
             freq++
             i--;
