@@ -13,15 +13,18 @@ I post my LeetCode solutions here.
 | [0189-rotate-array](https://github.com/yashmishra12/LeetCode/tree/master/0189-rotate-array) |
 | [0238-product-of-array-except-self](https://github.com/yashmishra12/LeetCode/tree/master/0238-product-of-array-except-self) |
 | [0455-assign-cookies](https://github.com/yashmishra12/LeetCode/tree/master/0455-assign-cookies) |
+| [1510-find-lucky-integer-in-an-array](https://github.com/yashmishra12/LeetCode/tree/master/1510-find-lucky-integer-in-an-array) |
 | [2486-most-frequent-even-element](https://github.com/yashmishra12/LeetCode/tree/master/2486-most-frequent-even-element) |
 | [2497-maximum-matching-of-players-with-trainers](https://github.com/yashmishra12/LeetCode/tree/master/2497-maximum-matching-of-players-with-trainers) |
 ## Hash Table
 |  |
 | ------- |
+| [1510-find-lucky-integer-in-an-array](https://github.com/yashmishra12/LeetCode/tree/master/1510-find-lucky-integer-in-an-array) |
 | [2486-most-frequent-even-element](https://github.com/yashmishra12/LeetCode/tree/master/2486-most-frequent-even-element) |
 ## Counting
 |  |
 | ------- |
+| [1510-find-lucky-integer-in-an-array](https://github.com/yashmishra12/LeetCode/tree/master/1510-find-lucky-integer-in-an-array) |
 | [2486-most-frequent-even-element](https://github.com/yashmishra12/LeetCode/tree/master/2486-most-frequent-even-element) |
 ## Two Pointers
 |  |
